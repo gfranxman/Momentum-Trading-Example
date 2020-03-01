@@ -5,11 +5,12 @@ from ta import macd
 import numpy as np
 from datetime import datetime, timedelta
 from pytz import timezone
+from os import environ
 
 # Replace these with your API connection info from the dashboard
-base_url = 'Your API URL'
-api_key_id = 'Your API Key'
-api_secret = 'Your API Secret'
+base_url = environ.get('ALPACA_API_URL', 'Your API URL')
+api_key_id = environ.get('ALPACA_API_KEY_ID', 'Your API Key')
+api_secret = environ.get("ALPACA_SECRET', 'Your API Secret')
 
 api = tradeapi.REST(
     base_url=base_url,
